@@ -15,8 +15,8 @@ def create_new_user(username, password, email):
     return user
 
 
-def check_user(userInfo):
-    user = userInfo
+def check_user(user_info):
+    user = user_info
     if user.is_anonymous:
         raise Exception("not logged in")
     return user
@@ -113,11 +113,10 @@ class CreateEmployee(graphene.Mutation):
         employee.save()
         return CreateEmployee(employee=employee, token=token)
 
-    def post_employee_create(sender, instance, created, **kwargs):
-        if created:
-            print('a new employee has joined us!')
+    # def post_employee_create(sender, instance, created, **kwargs):
+    #     if created:
 
-    post_save.connect(post_employee_create, sender=Employee)
+    # post_save.connect(post_employee_create, sender=Employee)
 
 
 class UpdateEmployee(graphene.Mutation):
@@ -148,11 +147,10 @@ class UpdateEmployee(graphene.Mutation):
         employee.save()
         return UpdateEmployee(employee=employee)
 
-    def post_employee_save(sender, instance, created, **kwargs):
-        if not created:
-            print('an employee has changed his details!')
+    # def post_employee_save(sender, instance, created, **kwargs):
+    #     if not created:
 
-    post_save.connect(post_employee_save, sender=Employee)
+    # post_save.connect(post_employee_save, sender=Employee)
 
 
 class DeleteEmployee(graphene.Mutation):

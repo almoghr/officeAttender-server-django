@@ -17,35 +17,23 @@ class WorkSpace(models.Model):
 
 class Employee(models.Model):
 
-    ON_MY_WAY = 'On my way'
-    ON_MY_WAY_IN_FIVE = 'On my way in five'
-    GOING_HOME = 'Going home'
-    STUCK_IN_TRAFFIC = 'Stuck in traffic'
-    AT_THE_OFFICE = 'At the office'
-    SICK_AT_HOME = 'Sick at home'
-    IN_A_MEETING = 'In a meeting'
-    IN_A_STAFF_MEETING = 'In a staff meeting'
-    IN_A_MANAGEMENT_MEETING = 'In a management meeting'
-    COFFEE_BREAK = 'Coffee break'
-    LUNCH_TIME = 'Lunch time'
-    IN_A_PARALLEL_WORKSPACE = 'In a parallel workspace'
-    WORKING_FROM_HOME = 'Working from home'
 
     WHATS_MY_STATUS = [
-        (ON_MY_WAY, 'On my way'),
-        (ON_MY_WAY_IN_FIVE, 'On my way in five'),
-        (GOING_HOME, 'Going home'),
-        (STUCK_IN_TRAFFIC, 'Stuck in traffic'),
-        (AT_THE_OFFICE, 'At the office'),
-        (SICK_AT_HOME, 'Sick at home'),
-        (IN_A_MEETING, 'In a meeting'),
-        (IN_A_STAFF_MEETING, 'In a staff meeting'),
-        (IN_A_MANAGEMENT_MEETING, 'In a management meeting'),
-        (COFFEE_BREAK, 'Coffee break'),
-        (LUNCH_TIME, 'Lunch time'),
-        (IN_A_PARALLEL_WORKSPACE, 'In a parallel workspace'),
-        (WORKING_FROM_HOME, 'Working from home'),
+        ('On my way', 'On my way'),
+        ('On my way in five', 'On my way in five'),
+        ('Going home', 'Going home'),
+        ('Stuck in traffic', 'Stuck in traffic'),
+        ('At the office', 'At the office'),
+        ('Sick at home', 'Sick at home'),
+        ('In a meeting', 'In a meeting'),
+        ('In a staff meeting', 'In a staff meeting'),
+        ('In a management meeting', 'In a management meeting'),
+        ('Coffee break', 'Coffee break'),
+        ('Lunch time', 'Lunch time'),
+        ('In a parallel workspace', 'In a parallel workspace'),
+        ('Working from home', 'Working from home'),
     ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     occupation = models.CharField(max_length=50)
