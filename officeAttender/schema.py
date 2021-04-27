@@ -41,7 +41,7 @@ class WorkSpaceType(DjangoObjectType):
 class Query(graphene.ObjectType):
     employees = graphene.List(EmployeeType)
     workspaces = graphene.List(WorkSpaceType)
-    me = graphene.Field(UserType)
+    profile = graphene.Field(UserType)
 
     def resolve_employees(self, info, search=None):
         check_user(info.context.user)
@@ -66,7 +66,7 @@ class Query(graphene.ObjectType):
         user = check_user(info.context.user)
         return get_user_model().objects.get(id=id)
 
-    def resolve_me(self, info):
+    def resolve_profile(self, info):
         user = check_user(info.context.user)
         return user
 
